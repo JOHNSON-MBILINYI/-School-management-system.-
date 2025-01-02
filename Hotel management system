@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// Class ya Room
 class Room {
 public:
     int roomNumber;
@@ -16,5 +17,13 @@ public:
         roomNumber = number;
         roomType = type;
         price = cost;
-        isBooked = false;
+        isBooked = false; // Chumba si booked mwanzoni
     }
+
+    void displayRoom() {
+        cout << "Room Number: " << roomNumber
+             << ", Type: " << roomType
+             << ", Price: $" << price
+             << ", Status: " << (isBooked ? "Booked" : "Available") << endl;
+    }
+};

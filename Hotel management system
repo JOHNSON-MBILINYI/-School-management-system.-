@@ -132,3 +132,27 @@ public:
 
 
 
+    // Delete: Futa chumba
+
+    void deleteRoom(int number) {
+
+        for (size_t i = 0; i < rooms.size(); ++i) {
+
+            if (rooms[i].roomNumber == number) {
+
+                rooms.erase(rooms.begin() + i);
+
+                cout << "Room " << number << " has been deleted successfully." << endl;
+
+                return;
+
+            }
+
+        }
+
+        cout << "Room " << number << " not found." << endl;
+
+    }
+
+};
+

@@ -8,7 +8,7 @@ struct Student {
     int id;
     string name;
     int age;
-    string level;
+    string grade;
 };
 vector<Student> students;
 
@@ -21,7 +21,7 @@ void addStudent() {
     getline(cin, student.name);
     cout << "Enter student age: ";
     cin >> student.age;
-    cout << "Enter student level: ";
+    cout << "Enter student grade: ";
     cin.ignore();
     getline(cin, student.level);
 

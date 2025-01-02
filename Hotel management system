@@ -1,158 +1,142 @@
 #include <iostream>
-
 #include <vector>
-
 #include <string>
-
-
 
 using namespace std;
 
-
-
 // Class ya Room
-
 class Room {
-
 public:
-
     int roomNumber;
-
     string roomType;
-
     float price;
-
     bool isBooked;
 
-
-
     Room(int number, string type, float cost) {
-
         roomNumber = number;
-
         roomType = type;
-
         price = cost;
-
         isBooked = false; // Chumba si booked mwanzoni
-
     }
-
-
 
     void displayRoom() {
-
         cout << "Room Number: " << roomNumber
-
              << ", Type: " << roomType
-
              << ", Price: $" << price
-
              << ", Status: " << (isBooked ? "Booked" : "Available") << endl;
-
     }
-
 };
 
 // Class ya HotelManagement
-
 class HotelManagement {
-
 private:
-
     vector<Room> rooms;
 
-
-
 public:
-
     // Create: Ongeza chumba kipya
-
     void addRoom(int number, string type, float cost) {
-
         Room newRoom(number, type, cost);
-
         rooms.push_back(newRoom);
-
         cout << "Room " << number << " has been added successfully." << endl;
-
     }
-
-
-
-
 
     // Read: Onyesha vyumba vyote
-
     void displayRooms() {
-
         if (rooms.empty()) {
-
             cout << "No rooms available in the system." << endl;
-
             return;
-
         }
-
-
 
         for (const auto &room : rooms) {
-
             room.displayRoom();
-
         }
-
     }
-
-
 
     // Update: Badilisha maelezo ya chumba
-
     void updateRoom(int number, string newType, float newCost) {
-
         for (auto &room : rooms) {
-
             if (room.roomNumber == number) {
-
                 room.roomType = newType;
-
                 room.price = newCost;
-
                 cout << "Room " << number << " has been updated successfully." << endl;
-
                 return;
-
             }
-
         }
-
         cout << "Room " << number << " not found." << endl;
-
     }
-
-
 
     // Delete: Futa chumba
-
     void deleteRoom(int number) {
-
         for (size_t i = 0; i < rooms.size(); ++i) {
-
             if (rooms[i].roomNumber == number) {
-
                 rooms.erase(rooms.begin() + i);
-
                 cout << "Room " << number << " has been deleted successfully." << endl;
-
                 return;
-
             }
-
         }
-
         cout << "Room " << number << " not found." << endl;
-
     }
-
 };
 
+// Main Function
+int main() {
+    HotelManagement hotel;
+    int choice;
+
+    do {
+        cout << "\n--- Hotel Management System ---\n";
+        cout << "1. Add Room\n";
+        cout << "2. Display All Rooms\n";
+        cout << "3. Update Room\n";
+        cout << "4. Delete Room\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                int number;
+                string type;
+                float cost;
+                cout << "Enter Room Number: ";
+                cin >> number;
+                cout << "Enter Room Type (Single/Double/Deluxe): ";
+                cin >> type;
+                cout << "Enter Price: ";
+                cin >> cost;
+                hotel.addRoom(number, type, cost);
+                break;
+            }
+            case 2:
+                hotel.displayRooms();
+                break;
+            case 3: {
+                int number;
+                string newType;
+                float newCost;
+                cout << "Enter Room Number to Update: ";
+                cin >> number;
+                cout << "Enter New Room Type: ";
+                cin >> newType;
+                cout << "Enter New Price: ";
+                cin >> newCost;
+                hotel.updateRoom(number, newType, newCost);
+                break;
+            }
+            case 4: {
+                int number;
+                cout << "Enter Room Number to Delete: ";
+                cin >> number;
+                hotel.deleteRoom(number);
+                break;
+            }
+            case 5:
+                cout << "Exiting the system. Goodbye!" << endl;
+                break;
+            default:
+                cout << "Invalid choice! Please try again." << endl;
+        }
+    } while (choice != 5);
+
+    return 0;
+}

@@ -11,9 +11,9 @@ void updateStudent() {
             getline(cin, student.name);
             cout << "Enter new age: ";
             cin >> student.age;
-            cout << "Enter new level: ";
+            cout << "Enter new grade: ";
             cin.ignore();
-            getline(cin, student.level);
+            getline(cin, student.grade);
 
             cout << "Student details updated successfully!\n";
             return;

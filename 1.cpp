@@ -23,7 +23,7 @@ void addStudent() {
     cin >> student.age;
     cout << "Enter student grade: ";
     cin.ignore();
-    getline(cin, student.level);
+    getline(cin, student.grade);
 
     students.push_back(student);
     cout << "Student added successfully!\n";

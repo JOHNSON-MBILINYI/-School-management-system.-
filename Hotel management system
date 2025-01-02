@@ -39,3 +39,16 @@ public:
         cout << "Room " << number << " has been added successfully." << endl;
     }
 
+
+    // Read: Onyesha vyumba vyote
+    void displayRooms() {
+        if (rooms.empty()) {
+            cout << "No rooms available in the system." << endl;
+            return;
+        }
+
+        for (const auto &room : rooms) {
+            room.displayRoom();
+        }
+    }
+

@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -27,3 +26,16 @@ public:
              << ", Status: " << (isBooked ? "Booked" : "Available") << endl;
     }
 };
+// Class ya HotelManagement
+class HotelManagement {
+private:
+    vector<Room> rooms;
+
+public:
+    // Create: Ongeza chumba kipya
+    void addRoom(int number, string type, float cost) {
+        Room newRoom(number, type, cost);
+        rooms.push_back(newRoom);
+        cout << "Room " << number << " has been added successfully." << endl;
+    }
+

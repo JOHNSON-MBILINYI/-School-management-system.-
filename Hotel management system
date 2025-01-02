@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// Class ya Room
 class Room {
 public:
     int roomNumber;
@@ -13,3 +12,9 @@ public:
     float price;
     bool isBooked;
 
+    Room(int number, string type, float cost) {
+        roomNumber = number;
+        roomType = type;
+        price = cost;
+        isBooked = false;
+    }

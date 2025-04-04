@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// Class ya Room
 class Room {
 public:
     int roomNumber;
@@ -16,5 +15,5 @@ public:
         roomNumber = number;
         roomType = type;
         price = cost;
-        isBooked = false; // Chumba si booked mwanzoni
+        isBooked = false;
     }
